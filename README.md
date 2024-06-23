@@ -6,18 +6,21 @@ Connect is a social networking web application similar to Twitter where users ca
 
 Check out the live demo of the project: [Connect Demo](https://connect-phi-one.vercel.app/)
 
+Front End Repo : [Connect_FrontEnd](https://github.com/Rishabh022/Connect_FrontEnd)
+
 ## Features
 
 - Post updates and share with friends
 - View friends' profiles and posts
 - Secure authentication and authorization
 - File upload functionality for images and videos
+  
 
 ## Hosting
 
 - **Server**: Hosted on [Render](https://render.com/)
 - **Frontend**: Hosted on [Vercel](https://vercel.com/)
-
+- **DataBase**: [MongoDB atlas](https://www.mongodb.com/)
 
 ## Technologies Used
 
