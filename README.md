@@ -10,10 +10,10 @@ Front End Repo : [Connect_FrontEnd](https://github.com/Rishabh022/Connect_FrontE
 
 ## Features
 
-- Post updates and share with friends
 - View friends' profiles and posts
 - Secure authentication and authorization
 - File upload functionality for images and videos
+- Light/dark mode and responsive design
   
 
 ## Hosting
