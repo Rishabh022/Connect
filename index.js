@@ -16,7 +16,7 @@ import { createPost } from "./controllers/posts.js";
 import { verifyToken } from "./middleware/auth.js";
 import User from "./models/User.js";
 import Post from "./models/Post.js";
-// import { users, posts } from "./data/dummy.js";
+import { users, posts } from "./data/index.js";
 
 /* CONFIGURATIONS */
 const __filename = fileURLToPath(import.meta.url);
@@ -29,11 +29,23 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
+
+/* CORS Configuration */
+const allowedOrigins = ['https://connect-phi-one.vercel.app'];
+
 app.use(cors({
-    origin: '*', // Replace '*' with your specific domain if needed
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Origin', 'Content-Type', 'Accept']
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+    allowedHeaders: "Authorization,Origin,X-Requested-With,Content-Type,Accept",
 }));
+
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
 /* FILE STORAGE */
